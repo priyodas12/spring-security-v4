@@ -3,8 +3,13 @@ server:
 spring:
   application:
     name: spring-security-v4
-  security:
-    user:
-      name: "priyo"
-      password: "priyo"
+  datasource:
+    url:
+    username:
+    password:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
 
