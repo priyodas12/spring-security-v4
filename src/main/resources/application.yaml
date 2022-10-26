@@ -1,0 +1,10 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: spring-security-v4
+  security:
+    user:
+      name: "priyo"
+      password: "priyo"
+
