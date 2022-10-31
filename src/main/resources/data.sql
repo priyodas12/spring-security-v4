@@ -26,6 +26,8 @@ create table `customer`
                 );
 
 INSERT IGNORE INTO `customer` VALUES (1,'priyo','priyo@test.com','$2a$12$OvTNDXqQFOBlIesCMmIiTulGkh.6HqUg6yjZeSGFP2Uy2VvgXA8Zm','2314524627','2022-11-10');
+INSERT IGNORE INTO `customer` VALUES (2,'test1','test1@test.com','$2a$12$/gy.iPGs.L0KzUmsgIjhx.PV88BP/lr3bCqZ.wmPKxxu5juuxM/O.','2314524600','2022-09-10');
+INSERT IGNORE INTO `customer` VALUES (3,'test2','test2@test.com','$2a$12$SsOhbmNZc9.ZjWjVvflz7O8oPc1G7fpz7yoFn5ozi9OWmiHIAnUdi','2314524601','2021-09-10');
 
 
 create table `authorities`
@@ -39,7 +41,8 @@ create table `authorities`
         );
 
 INSERT INTO `authorities` (`customer_id`,`name`) VALUES (1,'VIEW_ACCOUNT');
-INSERT INTO `authorities` (`customer_id`,`name`) VALUES (1,'VIEW_CARD');
-INSERT INTO `authorities` (`customer_id`,`name`) VALUES (1,'VIEW_LOAN');
 INSERT INTO `authorities` (`customer_id`,`name`) VALUES (1,'VIEW_BALANCE');
+INSERT INTO `authorities` (`customer_id`,`name`) VALUES (2,'VIEW_ACCOUNT');
+INSERT INTO `authorities` (`customer_id`,`name`) VALUES (3,'VIEW_CARD');
+INSERT INTO `authorities` (`customer_id`,`name`) VALUES (3,'VIEW_LOAN');
 

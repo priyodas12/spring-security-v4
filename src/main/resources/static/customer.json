@@ -1,0 +1,27 @@
+[
+  {
+    "customer_id": 1,
+    "username": "priyo",
+    "email": "priyo@test.com",
+    "pwd": "$2a$12$OvTNDXqQFOBlIesCMmIiTulGkh.6HqUg6yjZeSGFP2Uy2VvgXA8Zm",
+    "mobile_number": "2314524627",
+    "create_date": "2022-11-10"
+  },
+  {
+    "customer_id": 2,
+    "username": "test1",
+    "email": "test1@test1.com",
+    "pwd": "$2a$12$/gy.iPGs.L0KzUmsgIjhx.PV88BP/lr3bCqZ.wmPKxxu5juuxM/O.",
+    "mobile_number": "2314524601",
+    "create_date": "2022-10-10"
+  },
+  {
+    "customer_id": 3,
+    "username": "test2",
+    "email": "test2@test1.com",
+    "pwd": "$2a$12$SsOhbmNZc9.ZjWjVvflz7O8oPc1G7fpz7yoFn5ozi9OWmiHIAnUdi",
+    "mobile_number": "2314524602",
+    "create_date": "2021-10-10"
+  }
+
+]

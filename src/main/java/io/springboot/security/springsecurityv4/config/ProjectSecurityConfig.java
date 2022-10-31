@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.scrypt.SCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
@@ -18,11 +17,17 @@ public class ProjectSecurityConfig {
         http.formLogin();
         http.httpBasic();
         http.csrf().disable();
+
+        http.authorizeRequests().antMatchers("/register/customer","/contact-us","/public-notice").permitAll();
+
         http.authorizeRequests()
-                        .antMatchers("/my-account","/my-balance","/my-card","/my-loan")
-                                .authenticated()
-                                        .antMatchers("/register/customer","/contact-us","/public-notice")
-                                                .permitAll();
+                        .antMatchers("/my-account").hasAuthority("VIEW_ACCOUNT")
+                        .antMatchers("/my-balance").hasAnyAuthority("VIEW_ACCOUNT","VIEW_BALANCE")
+                        .antMatchers("/my-card").hasAuthority("VIEW_CARD")
+                        .antMatchers("/my-loan").hasAnyAuthority("VIEW_LOAN","VIEW_ACCOUNT")
+                        .anyRequest()
+                                .authenticated();
+
 
         return http.build();
     }

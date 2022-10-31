@@ -47,8 +47,9 @@ public class CustomizedAuthenticationProvider implements AuthenticationProvider 
                 log.info("Encoded password does not look like BCrypt");
             }
             if(passwordEncoder.matches(pwd,customerFromDb.get(0).getPwd())){
-                log.info("Authentication Successful!");
+                log.info("Authentication Successful for :"+customerFromDb.get(0).getEmail());
                 List<GrantedAuthority> authorityList=extractAuthorities(customerFromDb.get(0).getAuthorities());
+                authorityList.forEach(System.out::println);
                 return new UsernamePasswordAuthenticationToken(userName,pwd,authorityList);
             }else{
                 throw new BadCredentialsException("wrong username/password provided!");
