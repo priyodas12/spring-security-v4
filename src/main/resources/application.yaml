@@ -9,7 +9,7 @@ spring:
   datasource:
     url:
     username:
-    password:
+    password: 
     data: classpath:data.sql
     initialization-mode: always
   jpa:

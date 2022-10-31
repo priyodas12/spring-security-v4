@@ -22,7 +22,7 @@ public class CustomerRegController {
     public ResponseEntity<Customer> saveCustomerDetails(@RequestBody Customer customer){
         Customer customer1=customerService.saveCustomer(customer);
         try{
-            if(customer1.getId()>0){
+            if(customer1.getCustomer_id()>0){
             return new ResponseEntity<>(customer1,HttpStatus.CREATED);
             }
         }catch(Exception ex){
