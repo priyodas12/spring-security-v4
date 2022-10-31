@@ -4,13 +4,18 @@ package io.springboot.security.springsecurityv4.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "authorities")
-@Data
+@Getter
+@Setter
+@NoArgsConstructor
 public class Authority {
 
     @Id

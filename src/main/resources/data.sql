@@ -32,7 +32,7 @@ create table `authorities`
         (
         `id` INT NOT NULL AUTO_INCREMENT,
         `customer_id` INT NOT NULL,
-        `name` VARCHAR(50) NOT NULL,
+        `name` VARCHAR(250) NOT NULL,
         PRIMARY KEY(`id`),
         KEY `customer_id`(`customer_id`),
         CONSTRAINT `authorities_ibfk_1` FOREIGN KEY (`customer_id`) REFERENCES `customer`(`customer_id`)
