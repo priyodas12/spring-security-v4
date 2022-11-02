@@ -1,6 +1,7 @@
 package io.springboot.security.springsecurityv4.config;
 
 import io.springboot.security.springsecurityv4.filter.JwtTokenGeneratorFilter;
+import io.springboot.security.springsecurityv4.filter.JwtTokenValidatorFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -44,6 +45,7 @@ public class ProjectSecurityConfig {
                     .and().authorizeRequests().antMatchers("/register/customer","/contact-us","/public-notice").permitAll();
 
         http.addFilterAfter(new JwtTokenGeneratorFilter(), BasicAuthenticationFilter.class)
+                .addFilterBefore(new JwtTokenValidatorFilter(), BasicAuthenticationFilter.class)
                     .authorizeRequests()
                         .antMatchers("/my-account").hasAuthority("VIEW_ACCOUNT")
                         .antMatchers("/my-balance").hasAnyAuthority("VIEW_ACCOUNT","VIEW_BALANCE")
