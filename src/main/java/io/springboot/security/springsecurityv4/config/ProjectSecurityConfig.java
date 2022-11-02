@@ -1,5 +1,6 @@
 package io.springboot.security.springsecurityv4.config;
 
+import io.springboot.security.springsecurityv4.filter.JwtTokenGeneratorFilter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,6 +9,7 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 
@@ -41,7 +43,8 @@ public class ProjectSecurityConfig {
                     })
                     .and().authorizeRequests().antMatchers("/register/customer","/contact-us","/public-notice").permitAll();
 
-        http.authorizeRequests()
+        http.addFilterAfter(new JwtTokenGeneratorFilter(), BasicAuthenticationFilter.class)
+                    .authorizeRequests()
                         .antMatchers("/my-account").hasAuthority("VIEW_ACCOUNT")
                         .antMatchers("/my-balance").hasAnyAuthority("VIEW_ACCOUNT","VIEW_BALANCE")
                         .antMatchers("/my-card").hasAuthority("VIEW_CARD")
