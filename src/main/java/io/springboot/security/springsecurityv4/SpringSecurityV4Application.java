@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 
 @SpringBootApplication
-@EnableWebSecurity
+@EnableWebSecurity(debug = true)
 @EnableJpaRepositories("io.springboot.security.springsecurityv4.repository")
 @EntityScan("io.springboot.security.springsecurityv4.model")
 public class SpringSecurityV4Application {
